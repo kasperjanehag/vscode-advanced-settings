@@ -1,0 +1,58 @@
+
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+ 
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+        },
+        {
+            "name": "Python: Current File with Arguments",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            // "args": [
+            // ],
+        },
+        {
+            "name": "Python: Pytest Current File",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "cwd": "${workspaceRoot}",
+            "console": "integratedTerminal",
+            "args": [
+                "-v",
+                "--no-cov",
+                "${file}"
+            ],
+            "justMyCode": true,
+        },
+        {
+            "name": "Python: Kedro Run",
+            "type": "python",
+            "request": "launch",
+            "module": "kedro",
+            "cwd": "${workspaceRoot}",
+            "console": "integratedTerminal",
+            "args": [
+                "run",
+                "--params",
+                "...",
+                "--pipeline",
+                "...",
+            ],
+            "justMyCode": true,
+        },
+    ]
+}
