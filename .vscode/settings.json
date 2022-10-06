@@ -1,0 +1,29 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#0a8476",
+         
+        "activityBar.foreground": "#000000",
+ 
+        "activityBar.inactiveForeground": "#ffffff",
+        "activityBar.activeBackground": "#ffbf00",
+        "activityBar.activeBorder": "#ffffff",
+        "activityBar.activeFocusBorder": "#ffffff",
+ 
+        "activityBar.dropBorder": "#a200ff",
+ 
+        "activityBarBadge.background": "#ff5b00",
+        "activityBarBadge.foreground": "#ffffff",
+ 
+        "statusBar.background": "#0a8476",
+        "statusBar.foreground": "#ffffff",
+         
+    },
+    "python.testing.pytestArgs": [
+        "--cache-clear",
+        "--no-cov",
+        "--import-mode=importlib",
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "editor.rulers": [79,100],
+}
