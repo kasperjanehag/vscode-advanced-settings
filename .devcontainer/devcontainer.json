@@ -1,0 +1,67 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.238.0/containers/docker-existing-dockerfile
+{
+    "name": "CustomerOne Dev",
+ 
+    // Sets the run context to one level up instead of the .devcontainer folder.
+    "context": "..",
+ 
+    // Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+    "dockerFile": "../Dockerfile",
+ 
+    // Makes sure your local folder is mounted to the location of the code in the container (/customerone/)
+    "workspaceFolder": "/home/circleci/project",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/circleci/project,type=bind,consistency=cached",
+ 
+    "extensions": [
+        "aaron-bond.better-comments",
+        "bierner.markdown-mermaid",
+        "bungcip.better-toml",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "GitHub.vscode-pull-request-github",
+        "hbenl.vscode-test-explorer",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers",
+        "ms-vscode.makefile-tools",
+        "ms-vscode.test-adapter-converter",
+        "njpwerner.autodocstring",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml",
+        "shd101wyy.markdown-preview-enhanced",
+        "sourcery.sourcery",
+    ],
+ 
+    // Runs commands after the container is created. Can be commented out, not neccecary.
+    "postCreateCommand": [
+        
+        // Install oh-my-posh. See https://calebschoepp.com/blog/2021/how-to-setup-oh-my-posh-on-ubuntu/ for further instructions
+        "wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh",
+        "chmod +x /usr/local/bin/oh-my-posh",
+         
+        // Download the themes
+        "mkdir ~/.poshthemes",
+        "wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/.poshthemes/themes.zip",
+        "unzip ~/.poshthemes/themes.zip -d ~/.poshthemes",
+        "chmod u+rw ~/.poshthemes/*.json",
+        "rm ~/.poshthemes/themes.zip",
+
+        // Download 
+
+        // Add activation of theme to .bashrc
+        echo 'eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/paradox.omp.json)"' >> ~/.bashrc
+    ]
+ 
+    // Uncomment when using a ptrace-based debugger like C++, Go, and Rust
+    // "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+     
+    // Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
+    // "remoteUser": "vscode"
+ 
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+}
+   
